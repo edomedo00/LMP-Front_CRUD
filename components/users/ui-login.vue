@@ -46,8 +46,6 @@ export default {
   methods: {
     loginUser () {
       this.valid = this.$refs.frmLogin.validate()
-      // console.log('Button pressed', this.valid)
-
       if (this.valid) {
         const sentData = {
           user: this.user,

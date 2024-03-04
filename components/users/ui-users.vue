@@ -117,13 +117,17 @@
         <v-card-actions>
           <v-spacer />
 
-          <v-btn color="green darken-1" text @click="dialog = false">
+          <v-btn 
+          color="green darken-1" 
+          text 
+          @click="dialogDelete = false">
             Cancel
           </v-btn>
+
           <v-btn
             color="green darken-1"
             text
-            @click="dialog = postDelete()"
+            @click="dialog = postDelete"
           >
             Delete
           </v-btn>
@@ -245,7 +249,7 @@ export default {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.token
       }
-      const response = await this.$axios.get('get-all', headers)
+      const response = await this.$axios.get('get-all', {headers})
       if (response.data.alert === 'success') {
         this.users = response.data.data
       }
@@ -290,7 +294,7 @@ export default {
           user: this.userDelete
         }
         const headers = {
-          'Content-Typwe': 'application/json',
+          'Content-Type': 'application/json',
           Authorization: 'Bearer ' + this.token
         }
         this.$axios.post('delete-user', user, { headers }) // En peticiones post se utiliza este orden y se envian los headers como objetos
@@ -313,10 +317,10 @@ export default {
       this.user.phoneNr = user.phoneNr
       this.user.user = user.user
       this.user.password = ''
-      this.dialogUpdate = true // FALTA CODIGO
+      this.dialogUpdate = true 
     },
     UpdateUser () {
-      this.frmUserUpdate = this.$refs.frmUpdate.validate()
+      this.frmUserUpdate = this.$refs.frmUserUpdate.validate()
       if (this.frmUserUpdate) {
         const headers = {
           'Content-Type': 'application/json',

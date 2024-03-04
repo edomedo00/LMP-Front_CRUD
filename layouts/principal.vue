@@ -38,7 +38,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <nuxt />
+      <Nuxt />
       <ui-alert v-if="showAlert" class="alert" />
     </v-main>
   </v-app>
