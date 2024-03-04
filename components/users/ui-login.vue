@@ -72,7 +72,6 @@ export default {
               this.$store.commit('modifyText', result.data.alert)
               setTimeout(() => {
                 this.$store.commit('modifyAlert', false)
-                this.$router.push('/login')
               }, 3000)
             }
           }).catch((err) => {
